@@ -45,9 +45,9 @@ INSTALLED_APPS = [
     'django_filters',
     'rest_framework',
     'store_app',
-    'store_app_custom',
     'tags_app',
     'likes_app',
+    'core',
 ]
 
 MIDDLEWARE = [
@@ -144,3 +144,5 @@ INTERNAL_IPS = [
 REST_FRAMEWORK = {
     'COERCE_DECIMAL_TO_STRING': False
 }
+
+AUTH_USER_MODEL = 'core.User'
