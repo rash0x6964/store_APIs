@@ -23,4 +23,6 @@ admin.site.site_header = 'Store Admin'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('store/', include('store_app.urls')),
+    path('auth/', include('djoser.urls')),
+    path('auth/', include('djoser.urls.jwt')),
 ] + debug_toolbar_urls()
