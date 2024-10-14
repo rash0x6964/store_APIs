@@ -17,6 +17,16 @@ class InventoryFilter(admin.SimpleListFilter):
         if self.value() == '<10':
             return queryset.filter(inventory__lt=10)
 
+class ProductImageInline(admin.TabularInline):
+    model = models.ProductImage
+    readonly_fields = ['thumbnail']
+
+
+    def thumbnail(self, instace):
+        if instace.image.name != '':
+            return format_html(f'<img src="{instace.image.url}" class="thumbnail" />')
+        return ''
+
 @admin.register(models.Product)
 class ProductAdmin(admin.ModelAdmin):
     autocomplete_fields = ['collection']
@@ -34,6 +44,7 @@ class ProductAdmin(admin.ModelAdmin):
     list_select_related = ['collection']
     list_filter = ['collection', 'last_update', InventoryFilter]
     search_fields = ['title']
+    inlines = [ProductImageInline]
 
     def collection_title(self, product):
         return product.collection.title
@@ -51,6 +62,11 @@ class ProductAdmin(admin.ModelAdmin):
             request,
             f'{update_count} porducts were successfully updated.'
         )
+
+    class Media:
+        css = {
+            'all': ['store/styles.css']
+        }
 
 @admin.register(models.Customer)
 class CustomerAdmin(admin.ModelAdmin):
