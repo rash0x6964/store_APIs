@@ -8,8 +8,14 @@ django = "*"
 django-debug-toolbar = "*"
 djangorestframework = "*"
 pillow = "*"
+redis = "*"
+celery = "*"
+gunicorn = "*"
 
 [dev-packages]
+pytest = "*"
+pytest-django = "*"
+model-bakery = "*"
 
 [requires]
 python_version = "3.8"
