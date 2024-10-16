@@ -1,0 +1,10 @@
+# Railway.toml
+
+[build]
+# Specify any build-related settings here
+
+[release]
+  command = "python manage.py migrate"  # This runs your migrations on deploy
+
+[start]
+  command = "python manage.py runserver 0.0.0.0:8000"  # This starts your Django web server
