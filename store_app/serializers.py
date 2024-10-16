@@ -139,6 +139,7 @@ class UpdateOrderSerializer(serializers.ModelSerializer):
         model = Order
         fields = ['payment_status']
 
+# TODO: check if the is the module that i should use
 class CreateOrderSerializer(serializers.Serializer):
     cart_id = serializers.UUIDField()
 

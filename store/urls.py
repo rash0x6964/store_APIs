@@ -23,8 +23,9 @@ from debug_toolbar.toolbar import debug_toolbar_urls
 admin.site.site_header = 'Store Admin'
 
 urlpatterns = [
+    path('', include('core.urls')),
     path('admin/', admin.site.urls),
-    path('store/', include('store_app.urls')),
+    path('store/', include('store_app.urls'), name='store'),
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.jwt')),
 ] + debug_toolbar_urls()

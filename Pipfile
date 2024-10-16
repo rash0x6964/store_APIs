@@ -11,6 +11,7 @@ pillow = "*"
 redis = "*"
 celery = "*"
 gunicorn = "*"
+whitenoise = "*"
 
 [dev-packages]
 pytest = "*"

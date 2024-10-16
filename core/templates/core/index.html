@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'core/styles.css' %}" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="home-page">
+      <h1>Welcome to the RASH-STORE</h1>
+      <p>
+        RASH-STORE is a back-end API for a store that includes several useful
+        endpoints to perform various operations like listing products, adding
+        products to a cart, and creating orders...
+      </p>
+      <p>
+        This project was built using the Django framework, so it contains a
+        fully customizable dashboard for <a href="/admin/">admins</a> , making it simple for them to
+        manage the store.
+        <b
+          >Also, I have included a useful browsable API that will help you
+          discover the endpoints without needing Postman or curl commands.</b
+        >
+      </p>
+      <p class="note">Note: Some endpoints require you to be authenticated to use them.</p>
+      <ul>
+        <li><a href="/auth/users/">Sign up</a></li>
+        <li><a href="/auth/jwt/create/">Log in</a></li>
+        <li><a href="/store/">Store</a></li>
+      </ul>
+    </div>
+  </body>
+</html>

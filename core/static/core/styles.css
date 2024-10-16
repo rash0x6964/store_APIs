@@ -1,0 +1,42 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    /* font-family: monospace; */
+    list-style: none;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+
+    background: url(../rest_framework/img/grid.png) repeat-x;
+    background-attachment: fixed;
+}
+
+.home-page {
+    width: 50%;
+    height: 50%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size:  large;
+}
+
+.note {
+    color: #F95454;
+    font-style: italic;
+}
+
+.home-page > ul > li {
+    padding: 2px;
+}
