@@ -15,20 +15,22 @@ from pathlib import Path
 from dotenv import load_dotenv
 import os
 
-load_dotenv()
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+env_path = load_dotenv(os.path.join(BASE_DIR, '.env'))
+load_dotenv(env_path)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-tt@qz=*!=+s!@a5t3_0+*ptz5v$6w8!b6ejma2&qvvu4qy)abv'
+# SECRET_KEY = 'django-insecure-tt@qz=*!=+s!@a5t3_0+*ptz5v$6w8!b6ejma2&qvvu4qy)abv'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-tt@qz=*!=+s!@a5t3_0+*ptz5v$6w8!b6ejma2&qvvu4qy)abv')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 ALLOWED_HOSTS = []
 
@@ -88,15 +90,20 @@ WSGI_APPLICATION = 'store.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+import dj_database_url
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'store',
-        'HOST': 'localhost',
+        'HOST': os.environ.get('MYSQL_HOST'),
         'USER': os.environ.get('MYSQL_USER'),
         'PASSWORD': os.environ.get('MYSQL_PASSWORD')
     }
 }
+
+if 'DATABASE_URL' in os.environ:
+    DATABASES['default'] = dj_database_url.config()
 
 
 # Password validation
