@@ -1,3 +1,61 @@
+# Table of Contents
+- [1. Django Project Setup Guide](#django-project-setup-guide)
+- [2. RASH-STORE API Documentation](#rash-store-api-documentation)
+
+# Django Project Setup Guide
+Follow these steps to install and run the Django project:
+
+### 1. Clone the Repository
+Clone the repository from GitHub to your local machine:
+```bash
+git clone https://github.com/username/repo-name.git
+cd repo-name
+```
+
+### 2. Set Up the Virtual Environment with Pipenv
+Use `pipenv` to create a virtual environment and install the dependencies:
+```bash
+pipenv install
+```
+
+### 3. Activate the Pipenv Virtual Environment
+Once the installation is complete, activate the virtual environment:
+```bash
+pipenv shell
+```
+
+### 4. Set Up the Environment Variables
+If the project uses a `.env` file, copy the example file and modify it as needed:
+```bash
+cp .env.example .env
+```
+Edit the `.env` file with your specific values (e.g., database credentials, secret key, etc.).
+
+### 5. Apply Database Migrations
+Run the following command to apply the migrations and set up the database schema:
+```bash
+python manage.py migrate
+```
+
+### 6. Create a Superuser (Optional)
+To access the Django admin interface, create a superuser:
+```bash
+python manage.py createsuperuser
+```
+
+### 7. Collect Static Files
+If the project uses static files, run this command to collect them into one location:
+```bash
+python manage.py collectstatic
+```
+
+### 8. Run the Development Server
+Finally, run the Django development server:
+```bash
+python manage.py runserver
+```
+The project will now be accessible at `http://127.0.0.1:8000/`.
+
 # RASH-STORE API Documentation
 ### 1. **Introduction**
 The RASH-STORE API is a backend service for managing an online store. It provides endpoints for listing products, managing shopping carts, creating orders, and more. This API is built using Django and provides both a customizable admin dashboard and a browsable API for ease of use.
