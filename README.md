@@ -18,7 +18,7 @@ All requests to the API should be made to the following base URL:
 All available endpoints, grouped by functionality (e.g., products, collections, cart).
 
 > ### Products
-> *URL*: `/store/products/`<br>
+> *URL*: `/store/products`<br>
 > *Method*: `GET, POST`<br>
 > *Description*: Retrieves a list of products or adds a product.<br>
 > *Request Parameters*:<br>
@@ -45,9 +45,16 @@ All available endpoints, grouped by functionality (e.g., products, collections, 
 > *Description*: List or add an image to the product<br>
 > *Request Parameters*:<br>
 > - `image`: Picture of the product.<br>
+> ---
+> *URL*: `/store/products/<id>/reviews`<br>
+> *Method*: `GET, POST`<br>
+> *Description*: List or add reviews to the product<br>
+> *Request Parameters*:<br>
+> - `name`: Name of the user.<br>
+> - `description`: The comment about the product.<br>
 
 > ### Collection
-> *URL*: `/store/collections/`<br>
+> *URL*: `/store/collections`<br>
 > *Method*: `GET, POST`<br>
 > *Description*: List or add collections<br>
 > *Request Parameters*:<be>
@@ -60,7 +67,7 @@ All available endpoints, grouped by functionality (e.g., products, collections, 
 > - `title`: The title of the collection.<br>
 
 > ### Cart
-> *URL*: `/store/carts/`<br>
+> *URL*: `/store/carts`<br>
 > *Method*: `POST`<br>
 > *Description*: Create a cart<br>
 > *Request Parameters*:<br>
@@ -74,7 +81,7 @@ All available endpoints, grouped by functionality (e.g., products, collections, 
 > ---
 > *URL*: `/store/carts/<id>/items`<br>
 > *Method*: `GET, POST`<br>
-> *Description*: List all the products in the cart or add them<br>
+> *Description*: List all cart items or add them<br>
 > *Request Parameters*:<br>
 > - `product_id`: The id of the product.<br>
 > - `quantity`: How much u wanna add.<br>
@@ -86,7 +93,7 @@ All available endpoints, grouped by functionality (e.g., products, collections, 
 > - `quantity`: How much u wanna add.<br>
 
 > ### Customer
-> *URL*: `/store/customers/`<br>
+> *URL*: `/store/customers`<br>
 > *Method*: `GET`<br>
 > *Description*: List all the customers<br>
 > *Request Parameters*:<br>
@@ -101,7 +108,43 @@ All available endpoints, grouped by functionality (e.g., products, collections, 
 > - `Membership`: Membership (Gold, Silver, Bronze)<br>
 
 > ### Order
+> *URL*: `/store/orders`<br>
+> *Method*: `GET, POST`<br>
+> *Description*: List or create orders<br>
+> *Request Parameters*:<br>
+> - `cart_id`: The id of the cart contains the products.<br>
+> ---
+> *URL*: `/store/orders/<id>`<br>
+> *Method*: `GET, PATCH, DELETE`<br>
+> *Description*: View or update an order item<br>
+> *Request Parameters*:<br>
+> - `payment_status`: The status of the payment (Pending, Complete, Failed)<br>
 
+> ### Auth
+> *URL*: `/auth/users`<br>
+> *Method*: `GET, POST`<br>
+> *Description*: List or create user accounts<br>
+> *Request Parameters*:<br>
+> - `username`: Username for the account.<br>
+> - `password`: Password.<br>
+> - `email`: User Email.<br>
+> - `first_name` (optional): User name.<br>
+> - `last_name` (optional): User last name.<br>
+> ---
+> *URL*: `/auth/users/me`<br>
+> *Method*: `GET, PUT`<br>
+> *Description*: View or update an user profile<br>
+> *Request Parameters*:<br>
+> - `email`: User Email.<br>
+> - `first_name`: User name.<br>
+> - `last_name`: User last name.<br>
+> ---
+> *URL*: `/auth/jwt/create`<br>
+> *Method*: `POST`<br>
+> *Description*: Authenticate a user and generate a JWT token<br>
+> *Request Parameters*:<br>
+> - `username`: Username for the account.<br>
+> - `password`: Password.<br>
 
 ## Contact
 If you have any questions or encounter issues, please contact our support team at support@rash-store.com.
